@@ -22,8 +22,9 @@ EmptyQVariant = QtCore.QVariant()
 class RecentDocumentModel(QtCore.QAbstractListModel):
     """Model class for list of recent documents."""
 
-    def __init__ (self, parent=None, documents=[], maxentries=10):
+    def __init__ (self, parent=None, documents=None, maxentries=10):
         """Set document list."""
+        documents = [] if documents is None else documents
         super(RecentDocumentModel, self).__init__(parent)
         self.maxentries = maxentries
         self.documents = documents[:maxentries]
